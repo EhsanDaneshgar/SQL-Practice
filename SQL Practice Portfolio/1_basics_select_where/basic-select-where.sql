@@ -1,4 +1,4 @@
-use [CPSY205];
+use [CPSY205]; -- THE NAME OF THIS DATABASE
 --Selects the first 5 rows from the Employees table in the CPSY205 database
 SELECT  top 5 * FROM [dbo].[Employees];
 
