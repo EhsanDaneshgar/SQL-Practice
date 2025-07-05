@@ -36,3 +36,12 @@ WHERE [Gender]='M' AND [DepartmentName]='Engineering';
 SELECT EmployeeKey,[BirthDate], [MaritalStatus]from [dbo].[DimEmployee]
 Where [BirthDate]>'1981-01-01' AND [MaritalStatus]='S';
 
+--Write a query to return the names (EnglishProductName) of products from the DimProduct table that are either Red, Blue, or Black, 
+--AND have a ListPrice greater than 500.
+--Order the results by ListPrice in descending order.
+
+SELECT [EnglishProductName],[Color],[ListPrice]
+FROM[dbo].[DimProduct]
+WHERE ([Color] ='Red' or [Color]='Blue' or [Color]='Black' ) AND [ListPrice]>500
+ORDER BY [ListPrice] desc;
+
