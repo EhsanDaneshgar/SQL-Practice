@@ -52,9 +52,9 @@ This repository contains categorized SQL queries from my learning journey using 
 | `1_basics_select_where.sql`       | Basic `SELECT`, `WHERE`, logical filtering, and `IN` usage    |
 | `2_groupby_aggregations.sql`      | `GROUP BY` with `COUNT`, `SUM`, `AVG`, and `MAX`              |
 | `3_subqueries.sql`                | Subqueries and nested filtering (e.g., `IN`, `NOT IN`)        |
-| `4_having_clause.sql`             | Using `HAVING` to filter after aggregation                    |
-| `5_combined_logical.sql`          | Combining multiple conditions (`WHERE`, `GROUP BY`, `HAVING`) |
-| `6_joins.sql`                     | `JOIN` queries across customer, geography, and product tables |
+| `4_combined_logical.sql`          | Combining multiple conditions (`WHERE`, `GROUP BY`, `HAVING`) |
+| `5_joins.sql`                     | `JOIN` queries across customer, geography, and product tables |
+|  6_having_clause.sql`             | Using `HAVING` to filter after aggregation                    |
 | `7_ddl_create_alter.sql`          | `CREATE TABLE` and `ALTER TABLE` for schema design            |
 
 ---
