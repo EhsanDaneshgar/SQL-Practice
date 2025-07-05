@@ -1,4 +1,4 @@
-use [CPSY205]; -- THE NAME OF THIS DATABASE
+use [CPSY205];
 
 --Selects the first 5 rows from the Employees table in the CPSY205 database
 SELECT  top 5 * FROM [dbo].[Employees];
@@ -13,3 +13,8 @@ WHERE TABLE_NAME = 'Employees';
 SELECT *
 FROM [dbo].[Employees]
 WHERE [Department] IN ('IT' , 'Sales');
+
+-- Counts how many records exist for each EmployeeID in the Employees table.
+SELECT [EmployeeID], COUNT(*) AS CountPerID FROM[dbo].[Employees]
+GROUP BY [EmployeeID];
+
