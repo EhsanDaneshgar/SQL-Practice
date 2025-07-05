@@ -15,6 +15,8 @@ USE CPSY205;
 CREATE TABLE dbo.Customers(
 CustomerID INT);
 
+-- Alters the 'Customers' table to add three new columns:
+-- FirstName and LastName as NVARCHAR(50), and Email as NVARCHAR(100).
 ALTER TABLE [dbo].[Customers]
 ADD FirstName NVARCHAR (50),
 	LastName NVARCHAR (50),
