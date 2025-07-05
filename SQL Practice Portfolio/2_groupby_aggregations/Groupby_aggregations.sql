@@ -12,7 +12,7 @@ FROM [dbo].[DimEmployee]
 WHERE MaritalStatus = 'M'
 GROUP BY DepartmentName;
 
---For each department, show the number of employees — only for departments with more than 10 employees.
+--For each department, show the number of employees â€” only for departments with more than 10 employees.
 SELECT [DepartmentName],COUNT([EmployeeKey]) AS Number_of_Employees
 FROM[dbo].[DimEmployee]
 GROUP BY[DepartmentName]
@@ -26,7 +26,7 @@ GROUP BY[DepartmentName]
 HAVING AVG([BaseRate]*37.5*52)<50000;
 
 
---For each department, show the number of employees — but only include departments where the number of employees is an odd number.
+--For each department, show the number of employees â€” but only include departments where the number of employees is an odd number.
 SELECT [DepartmentName], COUNT([EmployeeKey])AS number_of_employees
 FROM[dbo].[DimEmployee]
 GROUP BY[DepartmentName]
@@ -49,6 +49,24 @@ select[DepartmentName], AVG(YEAR([BirthDate])) as average_birth_year_of_departme
 from[dbo].[DimEmployee]
 GROUP by[DepartmentName]
 HAVING AVG(YEAR([BirthDate]))<1985;
+
+--Write a SQL query to return the first and last names of customers, their city, and the total sales amount they generated 
+--only for customers in the state of Washington â€” but only include those who made more than 3 purchases.
+
+USE [AdventureWorksDW2019];
+
+SELECT MAX(C.[FirstName]) AS FirstName, 
+	MAX(C.[LastName]) AS LastName,
+	MAX(G.[City]) AS City, 
+	sum(S.[SalesAmount]) as total_sales_amount, 
+	MAX (G.StateProvinceName) AS State_Province_Name
+FROM [dbo].[DimCustomer] AS C
+JOIN [dbo].[DimGeography] AS G ON C.[GeographyKey]=G.[GeographyKey]
+JOIN [dbo].[FactInternetSales] AS S ON S.[CustomerKey]=C.[CustomerKey]
+WHERE G.StateProvinceName='Washington'
+GROUP BY C.[FirstName], C.[LastName],G.[City],S.[CustomerKey],G.StateProvinceName 
+having COUNT([SalesOrderNumber])>3;
+
 
 
 
