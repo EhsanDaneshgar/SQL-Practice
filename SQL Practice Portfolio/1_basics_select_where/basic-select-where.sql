@@ -26,3 +26,13 @@ WHERE [Department] IN ('IT' , 'Sales');
 SELECT [EmployeeID], COUNT(*) AS CountPerID FROM[dbo].[Employees]
 GROUP BY [EmployeeID];
 
+use [AdventureWorksDW2019];
+
+--Show all employees who are male and work in the Engineering department.
+SELECT [EmployeeKey],[FirstName],[LastName],[DepartmentName] FROM [dbo].[DimEmployee]
+WHERE [Gender]='M' AND [DepartmentName]='Engineering';
+
+--Find the EmployeeKey, BirthDate, and MaritalStatus for employees who were born after the year 1980.
+SELECT EmployeeKey,[BirthDate], [MaritalStatus]from [dbo].[DimEmployee]
+Where [BirthDate]>'1981-01-01' AND [MaritalStatus]='S';
+
