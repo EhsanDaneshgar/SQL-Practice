@@ -39,6 +39,30 @@ I’m building this portfolio as part of my transition into **data engineering a
 
 ---
 
+# SQL Practice Portfolio
+
+This repository contains categorized SQL queries from my learning journey using the AdventureWorksDW2019 and other databases.
+
+---
+
+## 📁 Categorized SQL Practice
+
+| File Name                         | Description                                                   |
+|-----------------------------------|---------------------------------------------------------------|
+| `1_basics_select_where.sql`       | Basic `SELECT`, `WHERE`, logical filtering, and `IN` usage    |
+| `2_groupby_aggregations.sql`      | `GROUP BY` with `COUNT`, `SUM`, `AVG`, and `MAX`              |
+| `3_subqueries.sql`                | Subqueries and nested filtering (e.g., `IN`, `NOT IN`)        |
+| `4_having_clause.sql`             | Using `HAVING` to filter after aggregation                    |
+| `5_combined_logical.sql`          | Combining multiple conditions (`WHERE`, `GROUP BY`, `HAVING`) |
+| `6_joins.sql`                     | `JOIN` queries across customer, geography, and product tables |
+| `7_ddl_create_alter.sql`          | `CREATE TABLE` and `ALTER TABLE` for schema design            |
+
+---
+
+Each file contains commented queries organized by topic to help reinforce concepts and practice real-world scenarios.
+
+Feel free to explore and run the queries on your own SQL Server instance.
+
 ## 🌱 About Me
 
 I’m actively learning data engineering and analytics with a strong background in petroleum engineering. I’ve worked with SQL Server, SSIS, and Power BI — and I’m continuing to grow by building this portfolio, solving problems, and preparing for real-world roles.
