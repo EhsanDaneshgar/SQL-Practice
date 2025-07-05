@@ -1,1 +1,0 @@
-#This folder is for SSIS screenshots and project notes.
