@@ -50,6 +50,29 @@ from[dbo].[DimEmployee]
 GROUP by[DepartmentName]
 HAVING AVG(YEAR([BirthDate]))<1985;
 
+USE [AdventureWorksDW2019];
+--Find the top 5 products that generated the highest total sales amount.
+--(Use the SalesAmount column and group by ProductKey)
+
+SELECT TOP 5 SUM([SalesAmount]) AS Total_Sales_Amount, [ProductKey]
+FROM [dbo].[FactInternetSales]
+GROUP BY [ProductKey];
+
+--List the SalesTerritoryKey values where the average UnitPrice is less than 300. 
+--Show the average UnitPrice for each of those territories.
+
+SELECT [SalesTerritoryKey], AVG ([UnitPrice]) AS the_average_UnitPrice
+FROM[dbo].[FactInternetSales]
+GROUP BY[SalesTerritoryKey]
+HAVING AVG ([UnitPrice])<300;
+
+--From the FactInternetSales table, return the top 3 SalesTerritoryKey values that have the highest total sales amount. 
+--Show both the SalesTerritoryKey and the total sales amount.
+
+SELECT TOP 3 SUM([SalesAmount]) AS total_sales_amount, [SalesTerritoryKey]
+FROM[dbo].[FactInternetSales]
+GROUP BY [SalesTerritoryKey]
+ORDER BY total_sales_amount DESC;
 --Write a SQL query to return the first and last names of customers, their city, and the total sales amount they generated 
 --only for customers in the state of Washington — but only include those who made more than 3 purchases.
 
