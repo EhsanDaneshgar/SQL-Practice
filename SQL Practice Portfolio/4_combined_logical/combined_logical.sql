@@ -63,3 +63,42 @@ group by [Department];
 --average compensations of each department
 SELECT AVG([Compensation]) AS Average_Compensation, [Department]FROM [dbo].[Employees]
 GROUP BY [Department];
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+USE[AdventureWorksDW2022];
+
+SELECT TOP 5 * FROM [dbo].[DimEmployee];
+
+SELECT FirstName, LastName, Title, DepartmentName
+FROM DimEmployee
+WHERE DepartmentName IN ('Marketing', 'Engineering', 'Finance');
+
+--Query the list of FIRST and last names, title, and department  from DimEmployee 
+--if the last name  have vowels (i.e., a, e, i, o, and u) as both their first and last characters. 
+select FirstName, LastName, Title, DepartmentName
+from DimEmployee
+where 
+    LEFT([LastName],1) IN ('A','I','O','U','E') AND
+    RIGHT ([LastName],1) IN ('A','I','O','U','E');
+
+--Query the EnglishProductName from the DimProduct table for all products whose ProductSubcategoryKey is not found in the DimProductSubcategory table.
+SELECT [EnglishProductName]
+FROM[dbo].[DimProduct]
+WHERE[ProductSubcategoryKey] not in ( SELECT [ProductSubcategoryKey] FROM [dbo].[DimProductSubcategory]);
+
+--Query the list of unique City names from the DimGeography table where the city name does not start with a vowel (a, e, i, o, u). Your result should not contain duplicates.
+
+SELECT DISTINCT [City]
+FROM[dbo].[DimGeography]
+WHERE LEFT([City],1) NOT IN ('A','E','I','O','U');
+
+--Find all products whose Color is either 'Red', 'Blue', or 'Black'.
+--(Use the DimProduct table and the Color column)
+SELECT [ProductKey],[EnglishProductName],[Color]
+FROM [dbo].[DimProduct]
+WHERE [Color] IN ('Red', 'Blue',  'Black');
+
+--Select the first name, last name, and geography key of customers who belong to geography keys 22, 32, 42, 25, or 50.
+select [FirstName],[MiddleName],[LastName],[GeographyKey]
+from[dbo].[DimCustomer]
+where [GeographyKey] IN (22,32,42,25,50);
