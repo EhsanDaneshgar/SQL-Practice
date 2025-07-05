@@ -27,3 +27,42 @@ WHERE G.City IN
 	JOIN [dbo].[DimCustomer] AS C2 
 		ON C2.GeographyKey=G2.GeographyKey
 	WHERE C2.LastName='Smith');
+
+--Returns a list of product names and their subcategory names
+--Use tables: DimProduct and DimProductSubcategory
+use [AdventureWorksDW2019];
+SELECT PRODUCT.[EnglishProductName], SUB.[EnglishProductSubcategoryName]
+FROM[dbo].[DimProduct] AS PRODUCT
+JOIN  [dbo].[DimProductSubcategory] AS SUB
+ON PRODUCT.ProductSubcategoryKey=SUB.ProductSubcategoryKey;
+
+--Query the list of English product names and their corresponding category names
+--from the DimProduct, DimProductSubcategory, and DimProductCategory tables.
+--DimProduct.ProductSubcategoryKey → DimProductSubcategory.ProductSubcategoryKey
+--DimProductSubcategory.ProductCategoryKey → DimProductCategory.ProductCategoryKey
+
+SELECT product.[EnglishProductName], category.[EnglishProductCategoryName]
+FROM [dbo].[DimProduct] as product
+JOIN [dbo].[DimProductSubcategory] as sub
+ON product.ProductSubcategoryKey = sub.ProductSubcategoryKey
+join [dbo].[DimProductCategory] as category
+on sub.ProductCategoryKey = category.ProductCategoryKey;
+
+--Write a query to display the FirstName, LastName, and the City of each customer 
+--by joining the DimCustomer and DimGeography tables.
+
+SELECT C.[FirstName], C.LastName,  G.[City]
+FROM [dbo].[DimCustomer] AS C
+JOIN [dbo].[DimGeography] AS G
+ON C.[GeographyKey]=G.GeographyKey;
+
+--Write a query to return the FirstName, LastName, City, and StateProvinceName of customers 
+--who live in the state of California.
+
+SELECT C.[FirstName], C.LastName,  G.[City], G.[StateProvinceName]
+FROM [dbo].[DimCustomer] AS C
+JOIN [dbo].[DimGeography] AS G
+ON C.[GeographyKey]=G.GeographyKey
+WHERE [StateProvinceName]='California';
+
+
