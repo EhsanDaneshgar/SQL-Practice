@@ -32,3 +32,23 @@ WHERE Department IN (
     GROUP BY Department
     HAVING AVG(Compensation) > 100000
 );
+
+USE[AdventureWorksDW2022];
+
+--Query the EnglishProductName from the DimProduct table for all products whose ProductSubcategoryKey is not found in the DimProductSubcategory table.
+SELECT [EnglishProductName]
+FROM[dbo].[DimProduct]
+WHERE[ProductSubcategoryKey] not in ( SELECT [ProductSubcategoryKey] FROM [dbo].[DimProductSubcategory]);
+
+--Return the names of customers who are from the same city as customers with the LastName 'Smith'.
+--Using a JOIN between DimCustomer and DimGeography
+
+SELECT [FirstName],[MiddleName],[LastName]
+FROM [dbo].[DimCustomer] AS C
+JOIN [dbo].[DimGeography] AS G
+ON C.GeographyKey=G.GeographyKey
+WHERE G.City IN 
+	(SELECT [City] FROM [dbo].[DimGeography] AS G2
+	JOIN [dbo].[DimCustomer] AS C2 
+		ON C2.GeographyKey=G2.GeographyKey
+	WHERE C2.LastName='Smith');
