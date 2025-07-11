@@ -65,7 +65,7 @@ Feel free to explore and run the queries on your own SQL Server instance.
 
 ## 🌱 About Me
 
-I’m actively learning data engineering and analytics with a strong background in petroleum engineering. I’ve worked with SQL Server, SSIS, and Power BI — and I’m continuing to grow by building this portfolio, solving problems, and preparing for real-world roles.
+I’m actively learning data engineering and analytics with a strong background in petroleum engineering. I’ve worked with SQL Server, SSIS, and Power BI, and I’m continuing to grow by building this portfolio, solving problems, and preparing for real-world roles.
 
 ---
 
